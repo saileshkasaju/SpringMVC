@@ -13,4 +13,8 @@
     <context:component-scan base-package="np.com.saileshkasaju.webapp"/>
     <mvc:annotation-driven/>
     <mvc:resources mapping="/static/**" location="/WEB-INF/assets/"/>
+    
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/views/" p:suffix=".jsp"
+    />
 </beans>

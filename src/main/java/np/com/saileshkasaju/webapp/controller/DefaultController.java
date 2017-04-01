@@ -19,8 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class DefaultController {
     
     @RequestMapping(method = RequestMethod.GET)
-    @ResponseBody
     public String index() {
-        return "<h1>Hello Form Spring Framework</h1>";
+        return "index";
     }
 }
