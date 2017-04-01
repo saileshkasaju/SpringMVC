@@ -15,6 +15,18 @@
     <mvc:resources mapping="/static/**" location="/WEB-INF/assets/"/>
     
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-          p:prefix="/WEB-INF/views/" p:suffix=".jsp"
-    />
+          p:prefix="/WEB-INF/views/" p:suffix=".jsp"/>
+    
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+        p:location="/WEB-INF/db/jdbc.properties"/>
+    
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+        p:driverClassName="${jdbc.driverName}"
+        p:url="${jdbc.url}"
+        p:username="${jdbc.username}"
+        p:password="${jdbc.password}"/>
+    
+        <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+            <property name="dataSource" ref="dataSource"/>
+        </bean>
 </beans>
